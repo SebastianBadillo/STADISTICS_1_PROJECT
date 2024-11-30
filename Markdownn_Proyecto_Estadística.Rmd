@@ -1,0 +1,64 @@
+---
+title: "Markdown_Proyecto_Estadística"
+author: "Alejandro_Gómez"
+date: "`r Sys.Date()`"
+output:
+  rmdformats::readthedown: 
+    toc_float: true   # Tabla de contenidos flotante
+    toc_depth: 3      # Profundidad de la tabla de contenidos
+    number_sections: true # Para numerar las secciones
+---
+## Introducción
+
+Una pregunta constante que muchos nos hemos hecho en algún momento de nuestra vida, es cómo podemos aprovechar nuestro tiempo de una mejor forma, como podemos alcanzar nuestro verdadero potencial, esta pregunta ha paseado por la mente de muchas personas en todas las edades y contextos, dando lugar al desarrollo de muchas técnicas de eficiencia, del cómo aprender habilidades más rápido y retenerlas en nuestra mente, hay muchos profesionales dedicados a ayudar a las personas en este ámbito. Sin embargo, a pesar de la gran cantidad de técnicas que existen, diversos métodos, todos parten de lo mismo la materia prima que los agrupa a todos es el uso del tiempo, ¿Cómo usamos nuestro tiempo?. Esa es la pregunta que trataremos de abordar en este análisis, situándonos en el contexto colombiano, como usamos nuestro tiempo en el país del Sagrado corazón. A lo largo de esta investigación usaremos la estadística para mostrar como los colombianos usamos nuestro tiempo.
+
+
+### ¿Cómo lo abordamos?
+
+Para abordar el problema de cómo los colombianos utilizan su tiempo, se empleará un enfoque basado en la estadística descriptiva. El análisis se realizará usando el dataseet de [uso del tiempo]( https://microdatos.dane.gov.co/index.php/catalog/552/) que contiene información recopilada mediante entrevistas donde se muestra la cantidad de tiempo que las personas invierten en diferentes actividades a lo largo del día, partiendo desde las más comunes como puede ser comer o dormir hasta algunas que no se realizan diariamente como pueden ser asistir a eventos deportivos, bares o fiestas.
+
+
+El dataset incluye variables como el tiempo invertido en cada actividad distribuido en horas y minutos. A partir de estos datos, calcularemos medidas estadísticas básicas como lo son la media, la moda. Además se harán gráficos que permitan observar como se distribuyen los datos de acuerdo a los encuestados, se agruparán en intervalos que permitan identificar los de mayor frecuencia.En adición, comparararemos las estadísticas nacionales con las de otros países o regiones del mundo, lo que nos permitirá sacar conclusiones de acuerdo a lo observado.
+
+### Metodología:
+
+Se limpiarán y preprocesarán los datos para asegurar que sean consistentes y completos.
+Se calcularán estadísticas descriptivas para identificar tendencias generales y diferencias en el uso del tiempo según diversas variables (edad, género, ubicación).
+Se generarán visualizaciones, como histogramas, diagramas de caja (boxplots) y gráficos de barras, para ilustrar las distribuciones y comparaciones.
+1.3 Enfoque/técnica analítica propuesta que cree que abordará este problema
+
+El enfoque analítico que se empleará se centra en estadística descriptiva para identificar patrones y tendencias en el uso del tiempo. Este enfoque es ideal porque nos permite obtener una visión general del comportamiento de la población sin necesidad de hacer inferencias sobre toda la población. El análisis se dividirá en las siguientes etapas:
+
+Análisis univariado: Estudiaremos variables individuales, como el tiempo dedicado al trabajo, el estudio y el ocio. Aquí calcularemos medidas como la media, la mediana, los cuartiles, y las frecuencias, lo que nos dará una idea clara de cómo las personas distribuyen su tiempo en general.
+Análisis bivariado: Se realizará un análisis de cómo dos variables, como género y tiempo dedicado al trabajo, se correlacionan. Esto se logrará mediante tablas de contingencia y gráficos de barras apiladas.
+Análisis de distribución: Se analizarán las distribuciones de las variables clave (como el tiempo dedicado al ocio, trabajo, etc.), utilizando histogramas y diagramas de caja para identificar outliers y la forma de las distribuciones.
+
+### ¿De qué nos sirve el análisis?
+
+El análisis proporcionará una comprensión clara y accesible sobre cómo los colombianos utilizan su tiempo. Esto será útil para varios consumidores de este análisis, como:
+
+Políticos y planificadores gubernamentales: Los resultados pueden ayudar a entender en qué áreas de la vida cotidiana los ciudadanos podrían necesitar más apoyo o inversión (por ejemplo, en educación, transporte o recreación).
+Investigadores y académicos: Ofrecerá datos objetivos sobre los patrones de uso del tiempo, lo que puede ser útil para estudios más profundos sobre el comportamiento humano y la calidad de vida.
+Ciudadanos y organizaciones: Ayudará a las personas a reflexionar sobre cómo distribuyen su tiempo y si es posible mejorar la eficiencia o el equilibrio entre trabajo, ocio y otras actividades. Además, las organizaciones podrían usar estos datos para diseñar estrategias que promuevan un uso más equilibrado y saludable del tiempo.
+El análisis descriptivo proporcionará una visión accesible, detallada y fácil de entender, permitiendo que los usuarios tomen decisiones informadas sobre cómo administrar su tiempo de manera más eficiente.
+
+## Paquetes de R requeridos
+
+Para el analisis de datos usamos los siguientes paquetes:
+
+## Preparación de los datos
+
+En esta sección, se describen las hipótesis que se han planteado para el análisis. Específicamente, qué se espera encontrar en los datos y cómo estas hipótesis guiarán el proceso de análisis. 
+
+Por ejemplo, si se trata de una hipótesis sobre el comportamiento de los estudiantes, podrías escribir algo como:
+
+> **Hipótesis 1**: Se espera que los estudiantes con un mayor número de horas de estudio tengan mejores calificaciones.
+
+
+## Analisis exploratorio de los datos
+ Cómo realizamos el análisis
+
+
+## Conclusiones
+
+Esta sección se encargará de las conclusiones luego de los resultados
