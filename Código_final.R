@@ -16,22 +16,18 @@
 
 #PARTE 1
 
-Instalar y cargar librerías necesarias
+#Instalar y cargar librerías necesarias
 install.packages("data.table")
-install.packages("readr")
-install.packages("vroom")
-library(data.table)
+install.packages("fitdistrplus")
+install.packages("ggplot2")
 
+library(data.table)
+library(fitdistrplus)
+library(ggplot2)
 # 1. Cargar los datos
 # --------------------
-# Leer archivo CSV y cargar los datos en un data table
+# Leer archivo CSV y cargar los datos en un data table. IMPORTANTE: EXTRAER EL ARCHIVO CSV DEL :ZIP FILE
 datos <- fread("Capitulo_I.csv")
-
-# 2. Limpiar valores NA
-# --------------------
-# Nota: No se deben reemplazar los datos NA por 0 directamente en todo el dataset.
-# Esto podría causar problemas en el análisis. Ejemplo de lo que **no se debe hacer**:
-## datos[is.na(datos)] <- 0 
 
 # 3. Identificar columnas de actividades y ajustar el dataset
 # --------------------
@@ -193,7 +189,18 @@ prom <- mean(resultsCsv$Tiempo_Minutos)
 cat("Archivos generados: 'resumen_actividades_corregido.csv' y datos individuales para las top 5 actividades.\n")
 
 
-
+# GENERAR ARCHIVOS NECESARIOS
+generar_csv_actividad_solicitada('P1144S1') # DORMIR
+generar_csv_actividad_solicitada('P1144S2') # COMER
+generar_csv_actividad_solicitada('P1110S1') # TELEVISION
+generar_csv_actividad_solicitada('P1113S2') # CHARLAR
+generar_csv_actividad_solicitada('P1113S1') # BARES
+generar_csv_actividad_solicitada('P1112S1') # DEPORTE
+generar_csv_actividad_solicitada('P1110S8') # LEER
+generar_csv_actividad_solicitada('P1113S2') # CHARLAR
+generar_csv_actividad_solicitada('P1110S5') # INTERNET
+generar_csv_actividad_solicitada('P1110S4') # MUSICA REALIZANDO OTRA ACTIVIDAD
+generar_csv_actividad_solicitada('P1110S3') # MUSICA SIN HACER OTRA ACTIVIDAD
 
 
 #PARTE 2
@@ -201,7 +208,7 @@ cat("Archivos generados: 'resumen_actividades_corregido.csv' y datos individuale
 ###ANALISIS PARA CSV DEL TIEMPO DE COMIDAS DE LAS PERSONAS
 
 #Ruta donde se encuentra el CSV  
-setwd("C:/Users/aleja/Downloads")
+#setwd("C:/Users/aleja/Downloads")
 
 #Nombre del CSV
 datos_comer <- read.csv("datos_P1144S2.csv")
@@ -298,10 +305,10 @@ axis(1, at = seq(0, max(datos_comer$Tiempo_Minutos), by = 25))
 
 
 ####ANALISIS PARA EL CSV DEL TIEMPO DE SUEÑO
-setwd("C:/Users/aleja/Downloads")
+#setwd("C:/Users/aleja/Downloads")
 
 
-datos_dormir <- read.csv("C:/Users/aleja/Downloads/datos_P1144S1.csv")
+datos_dormir <- read.csv("datos_P1144S1.csv")
 
 
 
@@ -347,7 +354,7 @@ plot(histograma$mids,        # Medias de los intervalos
 
 ##Análisis para ver a qué distribución se ajusta más si a la normal o la exponencial
 #install.packages("fitdistrplus")
-library(fitdistrplus)
+#library(fitdistrplus)
 ajuste_normal <- fitdist(datos_dormir$Tiempo_Minutos, "norm")
 ajuste_exponencial <- fitdist(datos_dormir$Tiempo_Minutos, "exp")
 gofstat(list(ajuste_normal, ajuste_exponencial), fitnames = c("Normal", "Exponencial"))
@@ -356,15 +363,21 @@ gofstat(list(ajuste_normal, ajuste_exponencial), fitnames = c("Normal", "Exponen
 
 
 # Paso 2: Crear rangos de 60 minutos para la columna Tiempo_Minutos
-datos_sueño$categoria <- cut(datos_sueño$Tiempo_Minutos, 
-                             breaks = seq(0, max(datos_sueño$Tiempo_Minutos), by = 60), 
-                             labels = paste(seq(0, max(datos_sueño$Tiempo_Minutos) - 60, by = 60), 
+#datos_sueño$categoria <- cut(datos_sueño$Tiempo_Minutos, 
+#                            breaks = seq(0, max(datos_sueño$Tiempo_Minutos), by = 60), 
+#                             labels = paste(seq(0, max(datos_sueño$Tiempo_Minutos) - 60, by = 60), 
+#                                            "-", 
+#                                            seq(60, max(datos_sueño$Tiempo_Minutos), by = 60)),
+#                             right = FALSE)  # El límite superior no se incluye
+datos_dormir$categoria <- cut(datos_dormir$Tiempo_Minutos, 
+                             breaks = seq(0, max(datos_dormir$Tiempo_Minutos), by = 60), 
+                             labels = paste(seq(0, max(datos_dormir$Tiempo_Minutos) - 60, by = 60), 
                                             "-", 
-                                            seq(60, max(datos_sueño$Tiempo_Minutos), by = 60)),
+                                            seq(60, max(datos_dormir$Tiempo_Minutos), by = 60)),
                              right = FALSE)  # El límite superior no se incluye
 
 # Paso 3: Contar cuántas personas están en cada categoría
-tabla_categoria <- table(datos_sueño$categoria)
+tabla_categoria <- table(datos_dormir$categoria)
 
 # Excluir categorías con menos de 1000 personas
 tabla_categoria_filtrada <- tabla_categoria[tabla_categoria >= 1000]
@@ -396,7 +409,7 @@ for (i in 1:length(tabla_categoria_filtrada)) {
 
 ####ANALISIS PARA VER TELEVISIÓN SIN HACER OTRA ACTIVIDAD
 
-setwd("C:/Users/aleja/Downloads")
+#setwd("C:/Users/aleja/Downloads")
 
 
 datos_television <- read.csv("datos_P1110S1.csv")
@@ -443,7 +456,7 @@ plot(histograma$mids,        # Medias de los intervalos
 
 
 ####ANALISIS PARA CHARLAR CON AMIGOS O FAMILIARES
-setwd("C:/Users/aleja/Downloads")
+#setwd("C:/Users/aleja/Downloads")
 
 
 datos_charlar <- read.csv("datos_P1113S2.csv")
@@ -490,7 +503,7 @@ plot(histograma$mids,        # Medias de los intervalos
 
 
 ####ANALISIS ASISTIR A BARES
-setwd("C:/Users/aleja/Downloads")
+#setwd("C:/Users/aleja/Downloads")
 
 
 datos_bares <- read.csv("datos_P1113S1.csv")
@@ -507,7 +520,7 @@ moda
 
 
 ####ANALISIS HACER DEPORTE.
-setwd("C:/Users/aleja/Downloads")
+#setwd("C:/Users/aleja/Downloads")
 
 
 datos_deporte <- read.csv("datos_P1112S1.csv")
@@ -569,7 +582,7 @@ axis(1, at = seq(0, max(datos_deporte$Tiempo_Minutos), by = 25))
 
 
 ####ANALISIS LEER LIBROS O REVISTAS.
-setwd("C:/Users/aleja/Downloads")
+#setwd("C:/Users/aleja/Downloads")
 
 
 datos_leer <- read.csv("datos_P1110S8.csv")
@@ -630,10 +643,10 @@ axis(1, at = seq(0, max(datos_leer$Tiempo_Minutos), by = 25))
 
 
 ####ANALISIS NAVEGAR POR INTERNET.
-setwd("C:/Users/aleja/Downloads/")
+#setwd("C:/Users/aleja/Downloads/")
 
 
-datos_internet <- read.csv("datos_P1110S5.csv;,")
+datos_internet <- read.csv("datos_P1110S5.csv")
 
 ###Cálculo de estadísticas básicas
 summary(datos_internet$Tiempo_Minutos)
@@ -692,7 +705,7 @@ axis(1, at = seq(0, max(datos_internet$Tiempo_Minutos), by = 25))
 
 ####ANALISIS ESCUCHAR MÚSICA HACIENDO OTRAS ACTIVIDADES
 
-setwd("C:/Users/aleja/Downloads")
+#setwd("C:/Users/aleja/Downloads")
 
 
 datos_musica1 <- read.csv("datos_P1110S4.csv")
@@ -708,10 +721,10 @@ moda
 
 ####ANALISIS ESCUCHAR MÚSICA SIN HACER OTRAS ACTIVIDADES
 
-setwd("C:/Users/aleja/Downloads")
+#setwd("C:/Users/aleja/Downloads")
 
 
-datos_musica2 <- read.csv("datos_P1110S3.csv;,")
+datos_musica2 <- read.csv("datos_P1110S3.csv")
 
 ###Cálculo de estadísticas básicas
 summary(datos_musica2$Tiempo_Minutos)
@@ -765,7 +778,7 @@ tabla_q3_actividades <- data.frame(
   Promedio = c(496.1, 58.64, 58.14, 99.86,107.1,125.6,494.56)
 )
 
-library(ggplot2)
+#library(ggplot2)
 
 ggplot(tabla_q3_actividades, aes(x = Actividad, y = Promedio, fill = Actividad)) +
   geom_bar(stat = "identity") +
@@ -778,7 +791,6 @@ tabla_q3_actividades$Porcentaje <- (tabla_q3_actividades$Promedio / sum(tabla_q3
 ggplot(tabla_q3_actividades, aes(x = "", y = Promedio, fill = Actividad)) +
   geom_bar(stat = "identity", width = 1, color = "black") +  # Borde negro
   coord_polar("y", start = 0) +
-  labs(title = "Distribución del Tiempo en un día") +
   theme_void() +
   theme(legend.position = "right") +
   geom_text(aes(label = paste0(round(Porcentaje, 1), "%")), 
