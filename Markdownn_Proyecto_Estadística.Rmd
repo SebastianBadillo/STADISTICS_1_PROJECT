@@ -8,57 +8,302 @@ output:
     toc_depth: 3      # Profundidad de la tabla de contenidos
     number_sections: true # Para numerar las secciones
 ---
-## Introducción
+# Introducción
 
-Una pregunta constante que muchos nos hemos hecho en algún momento de nuestra vida, es cómo podemos aprovechar nuestro tiempo de una mejor forma, como podemos alcanzar nuestro verdadero potencial, esta pregunta ha paseado por la mente de muchas personas en todas las edades y contextos, dando lugar al desarrollo de muchas técnicas de eficiencia, del cómo aprender habilidades más rápido y retenerlas en nuestra mente, hay muchos profesionales dedicados a ayudar a las personas en este ámbito. Sin embargo, a pesar de la gran cantidad de técnicas que existen, diversos métodos, todos parten de lo mismo la materia prima que los agrupa a todos es el uso del tiempo, ¿Cómo usamos nuestro tiempo?. Esa es la pregunta que trataremos de abordar en este análisis, situándonos en el contexto colombiano, como usamos nuestro tiempo en el país del Sagrado corazón. A lo largo de esta investigación usaremos la estadística para mostrar como los colombianos usamos nuestro tiempo.
-
-
-### ¿Cómo lo abordamos?
-
-Para abordar el problema de cómo los colombianos utilizan su tiempo, se empleará un enfoque basado en la estadística descriptiva. El análisis se realizará usando el dataseet de [uso del tiempo]( https://microdatos.dane.gov.co/index.php/catalog/552/) que contiene información recopilada mediante entrevistas donde se muestra la cantidad de tiempo que las personas invierten en diferentes actividades a lo largo del día, partiendo desde las más comunes como puede ser comer o dormir hasta algunas que no se realizan diariamente como pueden ser asistir a eventos deportivos, bares o fiestas.
+Una pregunta constante que muchos se han hecho en algún momento de nuestra vida, es cómo se puede aprovechar el tiempo de una mejor forma, como se logra alcanzar el verdadero potencial, esta pregunta ha paseado por la mente de muchas personas en todas las edades y contextos, dando lugar al desarrollo de muchas técnicas de eficiencia, del cómo aprender habilidades más rápido y retenerlas en nuestra mente, cómo usar el tiempo de manera más eficiente, hay muchos profesionales dedicados a ayudar a las personas en este ámbito. Sin embargo, a pesar de la gran cantidad de técnicas que existen, diversos métodos, todos parten de lo mismo la materia prima que los agrupa a todos es el uso del tiempo, ¿Cómo se usa el tiempo?. Esa es la pregunta que se tratará de abordar en este análisis, ubicandosé en el contexto colombiano, como se usa el tiempo en el país del Sagrado corazón. A lo largo de esta investigación se usará la estadística descriptiva para mostrar como los colombianos usan el tiempo.
 
 
-El dataset incluye variables como el tiempo invertido en cada actividad distribuido en horas y minutos. A partir de estos datos, calcularemos medidas estadísticas básicas como lo son la media, la moda. Además se harán gráficos que permitan observar como se distribuyen los datos de acuerdo a los encuestados, se agruparán en intervalos que permitan identificar los de mayor frecuencia.En adición, comparararemos las estadísticas nacionales con las de otros países o regiones del mundo, lo que nos permitirá sacar conclusiones de acuerdo a lo observado.
+## ¿Cómo lo abordamos?
 
-### Metodología:
-
-Se limpiarán y preprocesarán los datos para asegurar que sean consistentes y completos.
-Se calcularán estadísticas descriptivas para identificar tendencias generales y diferencias en el uso del tiempo según diversas variables (edad, género, ubicación).
-Se generarán visualizaciones, como histogramas, diagramas de caja (boxplots) y gráficos de barras, para ilustrar las distribuciones y comparaciones.
-1.3 Enfoque/técnica analítica propuesta que cree que abordará este problema
-
-El enfoque analítico que se empleará se centra en estadística descriptiva para identificar patrones y tendencias en el uso del tiempo. Este enfoque es ideal porque nos permite obtener una visión general del comportamiento de la población sin necesidad de hacer inferencias sobre toda la población. El análisis se dividirá en las siguientes etapas:
-
-Análisis univariado: Estudiaremos variables individuales, como el tiempo dedicado al trabajo, el estudio y el ocio. Aquí calcularemos medidas como la media, la mediana, los cuartiles, y las frecuencias, lo que nos dará una idea clara de cómo las personas distribuyen su tiempo en general.
-Análisis bivariado: Se realizará un análisis de cómo dos variables, como género y tiempo dedicado al trabajo, se correlacionan. Esto se logrará mediante tablas de contingencia y gráficos de barras apiladas.
-Análisis de distribución: Se analizarán las distribuciones de las variables clave (como el tiempo dedicado al ocio, trabajo, etc.), utilizando histogramas y diagramas de caja para identificar outliers y la forma de las distribuciones.
-
-### ¿De qué nos sirve el análisis?
-
-El análisis proporcionará una comprensión clara y accesible sobre cómo los colombianos utilizan su tiempo. Esto será útil para varios consumidores de este análisis, como:
-
-Políticos y planificadores gubernamentales: Los resultados pueden ayudar a entender en qué áreas de la vida cotidiana los ciudadanos podrían necesitar más apoyo o inversión (por ejemplo, en educación, transporte o recreación).
-Investigadores y académicos: Ofrecerá datos objetivos sobre los patrones de uso del tiempo, lo que puede ser útil para estudios más profundos sobre el comportamiento humano y la calidad de vida.
-Ciudadanos y organizaciones: Ayudará a las personas a reflexionar sobre cómo distribuyen su tiempo y si es posible mejorar la eficiencia o el equilibrio entre trabajo, ocio y otras actividades. Además, las organizaciones podrían usar estos datos para diseñar estrategias que promuevan un uso más equilibrado y saludable del tiempo.
-El análisis descriptivo proporcionará una visión accesible, detallada y fácil de entender, permitiendo que los usuarios tomen decisiones informadas sobre cómo administrar su tiempo de manera más eficiente.
-
-## Paquetes de R requeridos
-
-Para el analisis de datos usamos los siguientes paquetes:
-
-## Preparación de los datos
-
-En esta sección, se describen las hipótesis que se han planteado para el análisis. Específicamente, qué se espera encontrar en los datos y cómo estas hipótesis guiarán el proceso de análisis. 
-
-Por ejemplo, si se trata de una hipótesis sobre el comportamiento de los estudiantes, podrías escribir algo como:
-
-> **Hipótesis 1**: Se espera que los estudiantes con un mayor número de horas de estudio tengan mejores calificaciones.
+Para abordar el problema de cómo los colombianos utilizan su tiempo, se empleará un enfoque basado en la estadística descriptiva. El análisis se realizará usando el dataseet de [uso del tiempo]( https://microdatos.dane.gov.co/index.php/catalog/552/) que contiene información recopilada mediante entrevistas donde se muestra la cantidad de tiempo que las personas invierten en diferentes actividades a lo largo del día,usando para esto las actividades más comunes a lo largo de nuetsro día como lo son: comer, dormir, leer, navegar en internet, hacer deporte.
 
 
-## Analisis exploratorio de los datos
- Cómo realizamos el análisis
+El dataset incluye variables como el tiempo invertido en cada actividad distribuido en horas y minutos, para su análisis ubicaremos cada variable en un csv independiente para facilitar su estudio y así solo trabajar con las que nos interesan . A partir de estos datos, calcularemos medidas estadísticas básicas como lo son la media, la moda. Además se harán gráficos que permitan observar como se distribuyen los datos de acuerdo a los encuestados, se agruparán en intervalos que permitan identificar los de mayor frecuencia.En adición, comparararemos las estadísticas entre sí para ver cómo varían y a qué se puede deber este cambio.
+
+## Metodología:
+
+El análisis de datos para este proyecto de Estadística I comenzó con la selección de un conjunto de datos adecuado. En este caso, se optó por utilizar el archivo "Capítulo I", principalmente debido a su tamaño y la variedad de variables y filas que contiene, lo que proporciona una muestra representativa para el análisis.
+
+### 1. **Carga y Exploración Inicial de los Datos**
+
+El primer paso consistió en intentar abrir el archivo CSV en Excel para explorar su contenido, sin embargo, debido a su gran tamaño, Excel no pudo manejar el archivo de manera eficiente. En su lugar, se utilizó R, específicamente la librería data.table, que permitió cargar y visualizar rápidamente la estructura del archivo, manteniendo la eficiencia incluso con grandes volúmenes de datos.
+
+A continuación, se realizó un análisis inicial de los datos, donde se identificó un patrón en la estructura de los nombres de las columnas. Por ejemplo, se observó que las actividades estaban identificadas con un código base como "P1110S4", mientras que las horas y los minutos de cada actividad se encontraban en columnas con sufijos "_A1" (para horas) y "_A2" (para minutos). Este patrón ofreció una guía inicial para la limpieza y organización de los datos.
+
+###  2. **Limpieza de Datos**
+
+El siguiente paso fue realizar una limpieza inicial de las columnas, basada en el patrón observado. Se extrajeron las columnas que terminaban en "A1" (horas) y "A2" (minutos). Sin embargo, al analizar las columnas, se identificaron inconsistencias en el formato del archivo CSV. Algunas columnas seguían el patrón esperado (horas en "A1" y minutos en "A2"), pero otras no cumplían con esta estructura. En particular, se detectó que para algunas actividades, las horas estaban en "A2" y los minutos en "A3".
+
+Ante esta irregularidad, se decidió limpiar el dataset eliminando las columnas que no cumplían con el patrón consistente de A1 (horas) y A2 (minutos). Para realizar esta limpieza, se revisaron las columnas del dataset y, en conjunto con el diccionario de variables proporcionado por el DANE, se identificaron y eliminaron aquellas columnas que no seguían el patrón de actividades con horas en A1 y minutos en A2.
 
 
-## Conclusiones
+![Limpieza de los datos](C:\Users\aleja\OneDrive\Pictures\pfe_datos_limpios.png)
 
-Esta sección se encargará de las conclusiones luego de los resultados
+
+###  3. **Unificación de Columnas de Tiempo**
+
+Una vez limpiado el dataset, se procedió a unificar las columnas de horas y minutos. Para esto, se creó una nueva columna que representara el tiempo total en minutos, calculando el tiempo de cada actividad como la suma de las horas (multiplicadas por 60) y los minutos. Durante este proceso, se trató el valor NA como un valor de 0, ya que, en el contexto del análisis, era importante contar con un valor numérico para realizar los cálculos de manera correcta.
+
+Una vez unificados los datos, se generó un nuevo archivo CSV con los tiempos de actividades convertidos a minutos. Este paso permitió tener una visión más clara de las actividades realizadas por los individuos y sus respectivos tiempos asociados.
+
+###  4. **Análisis Preliminar de Actividades**
+
+Con el nuevo dataset que contenía los tiempos unificados, se realizó un cálculo preliminar del promedio de tiempo y el número de registros por actividad. El objetivo de este análisis inicial fue identificar, de manera rápida, cuáles eran las actividades con más datos disponibles y aquellas que eran más comúnmente reportadas. Este enfoque ayudó a seleccionar las actividades de mayor relevancia para el análisis posterior.
+
+En este cálculo de promedio, es importante destacar que se excluyeron los valores de tiempo igual a 0 (ya que estos no representan una actividad válida), y los valores NA fueron tratados como 0 en los cálculos. De esta forma, se obtuvieron estadísticas significativas sobre la duración promedio de las actividades.
+
+### 5. **Selección de Actividades Relevantes**
+
+Una vez identificadas las actividades más representadas, se seleccionaron las que presentaban el mayor número de datos y las que, por su naturaleza, parecían más relevantes para el análisis posterior. Con base en esta selección, se extrajeron las columnas de tiempo unificado (horas y minutos) de cada una de las actividades seleccionadas.
+
+
+## ¿De qué nos sirve el análisis?
+
+El análisis proporcionará una comprensión clara y accesible sobre cómo los colombianos utilizan su tiempo. Esto será útil para los consumidores de este análisis, en los siguientes aspectos:
+
+-Informarse sobre el uso que le da al tiempo la población colombiana en general, qué actividades son a las cuales se le invierte mayor cantidad de tiempo, en promedio cómo distribuye el tiempo un colombiano.
+
+-A modo de comparativa ya que podrán observar y contrastar los resultados con su manera personal de emplear el tiempo. Por lo que sabrán si están por encima o por debajo de la media, si creen que aprovechan su tiempo de mejor manera que la población en general o por el contrario lo usan en otras actividades.
+
+
+-Como punto de partida para una mejora, al conocer los resultados del análisis cada consumidor podrá concluir si considera que se usa el tiempo de manera adecuada o provechosa desde su punto de vista o si por el contrario se gasta el recurso en actividades poco útiles para el desarrollo del país o personal.
+
+# 📦 Paquetes de R requeridos
+
+
+
+## 📊 ggplot2
+El paquete `ggplot2` facilita la creación de gráficos de alta calidad en R mediante el uso de la **Gramática de los Gráficos**. Este enfoque permite construir visualizaciones de datos de manera estructurada y altamente personalizable. 🎨 Entre las funciones más utilizadas se encuentran:
+
+- `geom_histogram()` para crear histogramas 📊.
+- `geom_density()` para gráficos de densidad 📈.
+
+**Ejemplo:**
+```r
+# Crear un gráfico de densidad con ggplot2
+library(ggplot2)
+
+ggplot(datos, aes(x = variable)) +
+  geom_density(fill = "blue", alpha = 0.4) +
+  labs(title = "Gráfico de Densidad", x = "Variable", y = "Densidad")
+```
+## 🎯 fitdistrplus
+
+El paquete `fitdistrplus` es una poderosa herramienta para ajustar distribuciones teóricas a datos observados y evaluar su calidad de ajuste. 📐 Es especialmente útil en análisis estadístico avanzado donde buscamos modelar datos de forma precisa.
+
+#### 🚀 Características Principales
+1. **Ajuste de Distribuciones**: Permite ajustar distribuciones comunes como:
+   - Normal 🌟.
+   - Exponencial ⚡.
+   - Gamma 🎲.
+2. **Gráficos Informativos**:
+   - QQ-plots para comparar datos observados contra distribuciones ajustadas 📈.
+   - Gráficos de densidad superpuestos para observar visualmente el ajuste 🎨.
+3. **Métricas de Bondad de Ajuste**:
+   - **AIC** (Criterio de Información de Akaike) y **BIC** (Criterio de Información Bayesiano) para comparar distribuciones 📊.
+   - Pruebas estadísticas como Kolmogorov-Smirnov y Anderson-Darling 📉.
+
+#### 💻 Ejemplo en Acción
+```r
+# Instalar y cargar el paquete
+install.packages("fitdistrplus")  # Instalar si no está ya instalado
+library(fitdistrplus)
+
+# Ajustar una distribución normal a los datos
+ajuste <- fitdist(datos$Tiempo_Minutos, "norm")  # Ajuste a una normal
+
+# Resumen del ajuste
+summary(ajuste)  # Muestra los parámetros ajustados y las métricas de bondad de ajuste
+
+# Graficar resultados del ajuste
+plot(ajuste)  # Incluye gráficos como densidad, QQ-plot y más
+```
+
+## 📦 `data.table`: ¡Manipulación eficiente de datos en R! 🚀
+
+La librería **`data.table`** es una poderosa herramienta diseñada para trabajar con grandes conjuntos de datos de manera eficiente.Fue usada en la etapa de pre-procesamiento y liempieza de los datos. ✨ Es conocida por:
+
+- **🚄 Velocidad**: Ideal para operaciones rápidas en datos grandes (como filtros, resúmenes y combinaciones).
+- **🔧 Sintaxis compacta**: Simplifica el código en comparación con `data.frame`, permitiendo escribir menos y hacer más.
+- **🔗 Fusión de datos**: Soporta funciones avanzadas como `merge()` con alto rendimiento.
+- **🔍 Consultas rápidas**: Facilita la agrupación y agregación de datos.
+
+¡Perfecta para proyectos que manejan grandes volúmenes de información! 📊💻
+
+```r
+# Instalar la librería (si aún no está instalada)
+install.packages("data.table")
+
+# Cargar la librería
+library(data.table)
+
+# Crear un ejemplo simple
+dt <- data.table(ID = 1:5, Score = c(90, 85, 88, 92, 95))
+
+# Agregar una nueva columna con operaciones
+dt[, Grade := ifelse(Score >= 90, "A", "B")]
+
+# Mostrar el resultado
+print(dt)
+
+```
+# Resultados
+
+A continuación se presentarán los distintos gráficos obtenidos y cómo se usaron encaminados a resolver la pregunta del estudio.
+
+Como punto de partida se seleccionaron 7 variables a trabajar las cuales fueron:
+
+
+
+1. **Dormir**: Una de las variables más importantes, incluye tiempo de siestas.. 🛌
+2. **Comer**: Lo que nos permite recargarnos de energía durante el día. 🍔
+3. **Navegar en internet**: Explorar el mundo digital. 🌐
+4. **Leer**: Una métrica esencial que dice mucho de un país. 📚
+5. **Hacer deporte**: Mantenerse activo y saludable. 🏃‍♂️
+6. **Escuchar música**: Las melodías que acompañan nuestro día. 🎵
+7. **Ver televisión**: Momento de entretenimiento con una serie o película. 📺
+
+## Analisis primario:
+
+A cada una de las variables usadas se les  hizó un análisis inicial, para conocer datos como el promedio de cada una, la moda, cómo se distribuyen la mayoría de sus datos, los cuales se recopilaron a continuación:
+
+![Tabla recopilatoria](C:\Users\aleja\Pictures\pfetablarecopilatoria.png)
+
+En esta tabla podemos analizar tres medidas estadísticas muy dicientes acerca de los datos, como lo son el promedio, la moda y la desviación estándar. Tener en cuenta que los resultados mostrados son en minutos.
+
+A través de las cuales se pudó observar algunos resultados como:
+
+-  **Actividades con menos tiempo dedicado:** Las dos actividades con menor promedio son las de comer y leer, aunque  se debe tener en cuenta que el promedio es sensible a los outliers.
+-  **Modas similares:** La mayoría de actividades tiene modas similares, 60 minutos es la respuesta más común de las personas en cuanto al tiempo que le dedican a actividades como comer, leer, hacer deporte, escuchar música y navegar en internet.
+- **Distribución de los datos:** Con la desviación estándar se puede observar como están distribuidos los datos alrededor de la media y su variación. Es esperable que dormir sea la variable con mayor desviación estándar debido a que los minutos que se le dedican en promedio son mayores a los demás. También se puede ver que a  la actividad de leer hay una desviación amplia teniendo en cuenta que su promedio no es tan elevado, lo que  podría decir que hay personas que leen realmente muy poco y otras que leen más que el promedio, por lo que no hay una concentración significativa alrededor de la media. 
+
+
+
+## Análisis de distribución
+
+El siguiente análisis también se le realizó a todas las variables, el análisis de distribución mediante histogramas permite conocer más acerca de los datos de una forma visual, por ejemplo si su distribución se acerca a la perfección como la distribución normal, si hay muchos outliers e identificar su dispersión y variabilidad.
+
+A continuación se presentarán algunos histogramas, centrándonos en los que son diferentes:
+
+![Histograma del sueño](C:\Users\aleja\OneDrive\Pictures\pfe_histograma_sueño.png)
+
+
+![Histograma del tiempo en internet](C:\Users\aleja\OneDrive\Pictures\pfe_histograma_internet.png)
+
+
+
+![Histograma del tiempo de lectura](C:\Users\aleja\OneDrive\Pictures\pfe_histograma_leer.png)
+
+
+
+
+![Histograma del deporte](C:\Users\aleja\OneDrive\Pictures\pfe_histograma_deporte.png)
+
+
+
+> **Sobre lo observado**: Cómo era de esperarse el sueño es la única variable que se asemeja un poco a una distribución normal, ya que debido a su importancia las personas no se pueden dar el lujo de no dedicarle tiempo a esta actividad lo que hace que a diferencia de otras la mayor concentración de los datos no se de alrededor de los 100 minutos.
+
+> **Sobre la lectura y el deporte**: En la sección del deporte se puede ver que aunque hay personas que le dedican muy poco tiempo, son más las personas que le dedican más de una hora al día. Lo que es un resultado esperanzador ya que el deporte va asociado con la salud de una población. En cuanto a la lectura, la gráfica nos dice que la mayoría de las personas leen menos de una hora pero también hay personas que dedican mucho más tiempo que el promedio a esta actividad que muchos relacionan con la cultura de los pueblos.
+
+
+## Análisis particulares
+
+Con el fin de no hacer un análisis plano y por igual de todas las variables, a algunas de ellas se les realizaron análisis particulares, explorando algunas nuevas librerías de R.
+
+### Tiempo que le dedicamos a dormir
+
+La variable del tiempo de sueño de los habitantes del país nos pareció muy importante dada la relevancia que tiene este factor en la vida diaria y lo influyente que es en el cuerpo. Por lo que tratamos de agrupar los datos por categorías de modo que sea más diciente para el consumidor del análisis.
+
+
+![Distribución del sueño](C:\Users\aleja\OneDrive\Pictures\pfe_rangos_sueño.png)
+
+Como análisis adicional se hizó uso de una librería llamada fitdistrplus para identificar si la distribución de los datos se asemeja a una distribución normal o una exponencial.
+
+```{r, eval=FALSE}
+##Análisis para ver a qué distribución se ajusta más si a la normal o la exponencial
+install.packages("fitdistrplus")
+library(fitdistrplus)
+ajuste_normal <- fitdist(datos_sueño$Tiempo_Minutos, "norm")
+ajuste_exponencial <- fitdist(datos_sueño$Tiempo_Minutos, "exp")
+gofstat(list(ajuste_normal, ajuste_exponencial), fitnames = c("Normal", "Exponencial"))
+
+```
+
+Lo que arrojó los siguientes resultados:
+
+
+
+```{r, eval=FALSE}
+Goodness-of-fit statistics
+                                   Normal  Exponencial
+Kolmogorov-Smirnov statistic    0.1521342 4.746324e-01
+Cramer-von Mises statistic    377.5232446 7.945238e+03
+Anderson-Darling statistic   1860.7754841 3.743784e+04
+
+Goodness-of-fit criteria
+                                Normal Exponencial
+Akaike's Information Criterion 1495517     1787622
+Bayesian Information Criterion 1495536     1787632 
+
+```
+
+Que luego de interpretarlos indican que la distribución normal se ajusta mejor a la distribución que la exponencial. Para esto el paquete usa esta métrica Kolmogorov-Smirnov (K-S) Statistic, que ayuda a concluir el resultado.
+
+## Tiempo que le dedicamos a comer
+
+Para esto se agruparon por categorías de 15 minutos el tiempo dedicado a comer, resultando sorprendente que algunas personas dedican muy poco tiempo a esta actividad fundamental en la vida humana.
+
+
+
+
+## Distribución del tiempo en general
+
+Para hacer un consolidado del tiempo en total que se gasta en el día a día y el porcentaje total que representan en un día, se realizaron dos gráficas ilustrativas.
+
+![Distribución del día](C:\Users\aleja\OneDrive\Pictures\pfe_overview_actividades.png)
+
+Se realizó la misma gráfica pero con un diagrama de barras
+
+![Distribución del día](C:\Users\aleja\OneDrive\Pictures\pfe_promedio_actividades.png)
+
+## Comparaciones con otras referencias:
+
+Para el caso del tiempo dedicado a escuchar música, se realizó una comparación con los promedios semanales de otros países del mundo. De modo que se pudiese tener una referencia, guardando la salvedad de que si bien se trata de la misma variable, se desconoce la cantidad de encuestados del estudio encontrado en internet.
+
+Esta es una gráfica de la media semanal de horas que las personas escuchan música.
+
+![Gráfica de tiempo escuchando música mundialmente](C:\Users\aleja\OneDrive\Pictures\pfe_comparacion_musica.png)
+
+Haciendo uso de un comando muy popular como el sumary y un cálculo posterior se realizó el cálculo de la media semanal de tiempo que emplean las personas en colombia a escuchar música.
+
+```{r, eval=FALSE}
+
+###Cálculo de estadísticas básicas
+summary(datos_musica1$Tiempo_Minutos)
+
+> summary(datos_musica1$Tiempo_Minutos)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    1.0    60.0   120.0   160.2   180.0   840.0 
+
+    
+media_semanal <- (160.2 * 7) / 60.
+# La media semanal es de 18.69
+
+```
+
+Con lo que se pudo observar que el tiempo que emplean las personas en Colombia a escuchar música mientras hacen otras actividades está por encima de la media mundial.
+
+## Identificación de outliers
+
+Al momento de realizar estadísticas como el cálculo de los cuartiles se pudieron observar valores que resultaron raros en algunos casos por lo que para ciertas variables se decidió hacer un diagrama de bigotes con el fin de identificar los outliers. 
+
+
+![Diagrama de bigotes](C:\Users\aleja\OneDrive\Pictures\pfe_bigotes.png)
+
+En este caso se hizo para la gráfica del tiempo dedicado a comer por la población colombiana. Identificando varios outliers por encima del limite superior.
+
+# Conclusiones
+
+En este proyecto, la dificultad principal radica en las limitaciones del dataset utilizado, el cual cubre una amplia variedad de actividades realizadas por personas de 10 años en adelante, sin ninguna clasificación que permita segmentar los datos por grupos etarios, socioeconómicos, o de otra índole relevante. Esta falta de categorías claras reduce la capacidad para realizar comparativas precisas entre diferentes subgrupos de la población, lo que, a su vez, limita el potencial de análisis más detallado y profundo. Sin una segmentación adecuada, los patrones que podrían emerger de un análisis comparativo entre distintos grupos de personas no son fáciles de identificar ni de interpretar. Esta situación subraya la importancia de contar con datasets bien estructurados y clasificados que permitan análisis más segmentados y, por ende, conclusiones más robustas y precisas.
+
+Ya que el contar con un dataset bien estructurado permite que la etapa del pre-procesamiento de los datos no sea tan extensa, por ejemplo con las casillas donde no se obtenía respuesta de los encuestados se recomendaría marcarlo con un 0 y no dejarlas vacías ya que al estar vacías no es posible realizar un análisis directo.
