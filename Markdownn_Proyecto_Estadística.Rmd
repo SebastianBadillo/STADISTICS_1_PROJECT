@@ -1,6 +1,6 @@
 ---
 title: "Markdown_Proyecto_Estadística"
-author: "Alejandro_Gómez"
+author: "Alejandro_Gómez, Sebastián_Badillo"
 date: "`r Sys.Date()`"
 output:
   rmdformats::readthedown: 
